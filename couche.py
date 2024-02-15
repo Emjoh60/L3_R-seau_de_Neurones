@@ -33,6 +33,11 @@ class Couche:
             neur.calculErreur(liste,paramSigmoide)
         self.preCouche.propagationErreur(self.liste_neurone,paramSigmoide)
         
+    def propagationErreurBatch(self,liste:list,paramSigmoide:float):
+        for neur in self.liste_neurone:
+            neur.calculErreurBatch(liste,paramSigmoide)
+        self.preCouche.propagationErreurBatch(self.liste_neurone,paramSigmoide)
+    
     def propagationErreurCorrection(self,coeffApp:float):
         for neurPrec in self.liste_neurone:
             neurPrec.correctionPoids(coeffApp)

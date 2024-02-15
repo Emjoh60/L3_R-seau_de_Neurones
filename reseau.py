@@ -72,3 +72,10 @@ class Reseau:
         if(self.coucheFinale.neurone.getValeur()>(self.valAttendue+self.margeErreur) or self.coucheFinale.neurone.getValeur()<(self.valAttendue-self.margeErreur)):
             print("Correction")
             self.coucheFinale.propagationErreurCorrection(self.tauxApprentissage)
+
+    def initierCorrectionBatch(self,correct:bool):
+        self.coucheFinale.propagationErreur(self.valAttendue,self.paramSigmoide)
+        print("Attente : "+str(self.valAttendue)+" Résultat : "+str(self.coucheFinale.neurone.getValeur())+" Marge : "+str(self.margeErreur))
+        if(correct):
+            print("Correction")
+            self.coucheFinale.propagationErreurCorrection(self.tauxApprentissage)

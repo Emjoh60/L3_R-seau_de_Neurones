@@ -24,6 +24,12 @@ class CoucheFinale(Couche):
         liste.append(self.neurone)
         self.preCouche.propagationErreur(liste,paramSigmoide)
 
+    def propagationErreurBatch(self,valAtt:float,paramSigmoide:float):
+        self.neurone.calculErreurAttendue(valAtt)
+        liste=[]
+        liste.append(self.neurone)
+        self.preCouche.propagationErreurBatch(liste,paramSigmoide)
+
     def propagationErreurCorrection(self,coeffApp:float):
         self.neurone.correctionPoids(coeffApp)
         self.preCouche.propagationErreurCorrection(coeffApp)

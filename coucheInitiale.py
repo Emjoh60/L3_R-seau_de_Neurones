@@ -19,6 +19,10 @@ class CoucheInitiale(Couche):
     def propagationErreur(self,liste:list,paramSigmoide:float):
         for neur in self.liste_neurone:
             neur.calculErreur(liste,paramSigmoide)
+    
+    def propagationErreurBatch(self,liste:list,paramSigmoide:float):
+        for neur in self.liste_neurone:
+            neur.calculErreurBatch(liste,paramSigmoide)
 
     def propagationErreurCorrection(self,coeffApp:float):
         for neurPrec in self.liste_neurone:

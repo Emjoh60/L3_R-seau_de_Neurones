@@ -42,6 +42,16 @@ class Neurone:
             somErrPoids=somErrPoids+(e*w)
         self.erreur=paramSigmoide*self.valeur*(1-self.valeur)*somErrPoids
 
+    def calculErreurBatch(self,listeSuivante:list,paramSigmoide:float):
+        somErrPoids=0
+        for neuSuivant in listeSuivante:
+            e=neuSuivant.getErreur()
+            w=neuSuivant.listeEntree[self]
+            somErrPoids=somErrPoids+(e*w)
+        if not(self.erreur in locals()):
+            self.erreur=(self.erreur+paramSigmoide*self.valeur*(1-self.valeur)*somErrPoids)
+        self.erreur=(self.erreur+paramSigmoide*self.valeur*(1-self.valeur)*somErrPoids)/2
+
     def getErreur(self):
         return self.erreur
 
