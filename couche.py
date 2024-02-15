@@ -1,4 +1,5 @@
 from neurone import Neurone
+from neuronePremier import NeuronePremier
 import couche
 from random import*
 
@@ -12,8 +13,7 @@ class Couche:
             dict={}
             if type(self.preCouche.liste_neurone)==list:
                 for j in self.preCouche.liste_neurone :
-                    dict[j]=uniform(0,2) #Initialisation des poids avec des valeurs aléatoires
-                    dict[j] = round(dict[j], 2)
+                    dict[j]=round(uniform(-1,1),2) #Initialisation des poids avec des valeurs aléatoires
                 self.liste_neurone.append(Neurone(dict))
 
     def afficherListe(self) :
@@ -24,14 +24,14 @@ class Couche:
                 print("Neurone "+str(itNeu))
                 x.afficherListe()
 
-    def initierCalcul(self) :
+    def initierCalcul(self,paramSigmoide) :
         for x in self.liste_neurone:
-            x.calculSigmoide()
+            x.calculSigmoide(paramSigmoide)
 
-    def propagationErreur(self,liste:list):
+    def propagationErreur(self,liste:list,paramSigmoide:float):
         for neur in self.liste_neurone:
-            neur.calculErreur(liste)
-        self.preCouche.propagationErreur(self.liste_neurone)
+            neur.calculErreur(liste,paramSigmoide)
+        self.preCouche.propagationErreur(self.liste_neurone,paramSigmoide)
         
     def propagationErreurCorrection(self,coeffApp:float):
         for neurPrec in self.liste_neurone:
