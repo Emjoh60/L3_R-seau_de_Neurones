@@ -32,7 +32,7 @@ class NeuronePremier(Neurone):
         itInt=0
         for x in range(len(self.listeEntree)):
             itInt=itInt+1
-            print("Entrée "+str(x)+" Valeur : "+str(self.listeEntree[x][0])+" - Poids "+str(self.listeEntree[x][1]))
+            print("         Entrée "+str(x)+" Valeur : "+str(self.listeEntree[x][0])+" - Poids "+str(self.listeEntree[x][1]))
     
     # Méthode pour calculer l'erreur selon une valeur attendue (sutout utilisé pour le neurone de sortie)
     def calculErreurAttendue(self,valAttendue:float):
@@ -69,4 +69,4 @@ class NeuronePremier(Neurone):
     def correctionPoids(self,coeffApp):
         for x in range(len(self.listeEntree)):
             self.listeEntree[x][1]=self.listeEntree[x][1]+coeffApp*self.listeEntree[x][0]*self.getErreur()
-            self.listeEntree[x][1]=round(self.listeEntree[x][1], 2)
+            self.listeEntree[x][1]=self.listeEntree[x][1], 2

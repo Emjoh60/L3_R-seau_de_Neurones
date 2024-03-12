@@ -15,7 +15,7 @@ class Couche:
             if type(self.preCouche.liste_neurone)==list: # Vérification du type
                 # Pour chaque neurone de la couche précédente 
                 for j in self.preCouche.liste_neurone :
-                    dict[j]=round(uniform(-1,1),2) #Initialisation des poids avec des valeurs aléatoires à l'index du neurone
+                    dict[j]=uniform(-0.5,0.5) #Initialisation des poids avec des valeurs aléatoires à l'index du neurone
                 self.liste_neurone.append(Neurone(dict)) # Ajout du neurone nouvellement créer dans la liste de neurone
 
     # Méthode pour afficher la liste de neurone
@@ -24,7 +24,7 @@ class Couche:
         if type(self.liste_neurone)==list:
             for x in self.liste_neurone:
                 itNeu=itNeu+1
-                print("Neurone "+str(itNeu))
+                print("     Neurone "+str(itNeu))
                 x.afficherListe() # Appel de la méthode afficherListe de chaque neurone
 
     # fonction pour initier le calcul de la Sigmoide par appel la méthode de calculSgmoide de neurone

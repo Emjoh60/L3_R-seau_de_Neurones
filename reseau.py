@@ -79,21 +79,21 @@ class Reseau:
         for x in self.listeCouche:
             x.initierCalcul(self.paramSigmoide)
         self.coucheFinale.initierCalcul(self.paramSigmoide)
-        print("Résultat : "+str(self.coucheFinale.neurone.getValeur()))
+        print("Résultat du calcul : "+str(self.coucheFinale.neurone.getValeur()))
 
     # Méthode pour initier la correction dans notre réseau
     def initierCorrection(self):
         self.coucheFinale.propagationErreur(self.valAttendue,self.paramSigmoide) # Propagation de l'erreur selon la valeur attendue
-        print("Attente : "+str(self.valAttendue)+" Résultat : "+str(self.coucheFinale.neurone.getValeur())+" Marge : "+str(self.margeErreur))
+        print("Attente : "+str(self.valAttendue)+" Résultat : "+str(self.coucheFinale.neurone.getValeur())+" Marge : "+str(self.margeErreur)+"\n")
         # Si la valeur résultante est en dehors des bornes d'acceptation de la valeur attendue alors on initie la correction
         if(self.coucheFinale.neurone.getValeur()>(self.valAttendue+self.margeErreur) or self.coucheFinale.neurone.getValeur()<(self.valAttendue-self.margeErreur)):
-            print("Correction")
+            print("Correction\n")
             self.coucheFinale.propagationErreurCorrection(self.tauxApprentissage)
 
     # Méthode pour initier la correction Batch dans notre réseau
     def initierCorrectionBatch(self,correct:bool): # Propagation de l'erreur selon la valeur attendue
         self.coucheFinale.propagationErreur(self.valAttendue,self.paramSigmoide)
-        print("Attente : "+str(self.valAttendue)+" Résultat : "+str(self.coucheFinale.neurone.getValeur())+" Marge : "+str(self.margeErreur))
+        print("Attente : "+str(self.valAttendue)+" Résultat : "+str(self.coucheFinale.neurone.getValeur())+" Marge : "+str(self.margeErreur)+"\n")
         if(correct):
-            print("Correction")
+            print("Correction\n")
             self.coucheFinale.propagationErreurCorrection(self.tauxApprentissage)

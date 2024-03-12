@@ -4,8 +4,12 @@ from io import BytesIO
 import sys
 import csv
 
-fileSave="Save/"+str(sys.argv[1]) # Nom du fichier de sauvegarde
-fileName=str(sys.argv[2]) # Nom du fichier contenant les données
+try:
+    fileSave="Save/"+str(sys.argv[1]) # Nom du fichier de sauvegarde
+    fileName=str(sys.argv[2]) # Nom du fichier contenant les données
+except:
+    print("ERREUR DE SAISIE !\nFormat attendu :python3 test.py FileSave DataFile")
+    exit(1)
 
 fSave = open(fileSave,'rb') # Ouverture du fichier contenant l'intelligence artificielle que l'on souhaite entrainer
 
@@ -29,5 +33,5 @@ with open(fileName, 'r') as file:
         reseau.modifierValAtt(valAtt)
         reseau.initierCalcul()
         reseau.afficherListeDonnee()
-        print("Valeur attendue : "+str(valAtt)+" Resultat : "+str((reseau.coucheFinale.neurone.getValeur())))
+        print("Valeur attendue : "+str(valAtt)+" Resultat : "+str((reseau.coucheFinale.neurone.getValeur()))+"  \n")
 

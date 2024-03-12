@@ -10,12 +10,12 @@ class CoucheFinale(Couche):
         dict={} # Initialisation d'un dictionnaire vide (tableau associatif)
         # Pour chaque neurone de la couche précédente
         for j in self.preCouche.liste_neurone :
-            dict[j]=round(uniform(-1,1),2) #Initialisation des poids avec des valeurs aléatoires
+            dict[j]=uniform(-0.5,0.5) #Initialisation des poids avec des valeurs aléatoires
         self.neurone=(Neurone(dict)) # Etant donné qu'il y a qu'un seul neurone la couche final n'a qu'un seul attribut neurone 
 
     # Méthode pour afficher la liste de neurone
     def afficherListe(self) :
-        print("Neurone final")
+        print("     Neurone final")
         self.neurone.afficherListe()
 
     # fonction pour initier le calcul de la Sigmoide par appel la méthode de calculSgmoide de neurone

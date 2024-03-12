@@ -37,7 +37,7 @@ class Neurone:
         itNeu=0
         for x in self.listeEntree:
             itNeu=itNeu+1
-            print("Neurone Prec : "+str(itNeu)+" - Poids "+str(self.listeEntree[x]))
+            print("         Neurone Prec : "+str(itNeu)+" - Poids "+str(self.listeEntree[x]))
     
     # Méthode pour calculer l'erreur selon une valeur attendue (sutout utilisé pour le neurone de sortie)
     def calculErreurAttendue(self,valAttendue:float):
@@ -74,4 +74,3 @@ class Neurone:
     def correctionPoids(self,coeffApp):
         for neurPrec in self.listeEntree:
             self.listeEntree[neurPrec]=self.listeEntree[neurPrec]+coeffApp*neurPrec.getValeur()*self.getErreur()
-            self.listeEntree[neurPrec]=round(self.listeEntree[neurPrec], 2) # Arrondissement de la valeur 

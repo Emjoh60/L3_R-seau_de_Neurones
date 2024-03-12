@@ -15,7 +15,7 @@ class CoucheInitiale(Couche):
             self.liste_neurone.append(NeuronePremier(self.listeValeur))
             # Pour chaque valeur de la liste d'entrée 
             for j in range(len(self.listeValeur)):
-                w=round(uniform(-1,1),2) #Initialisation des poids avec des valeurs aléatoires
+                w=uniform(-0.5,0.5) #Initialisation des poids avec des valeurs aléatoires
                 # Initialisation d'un tableau contenant deux cases la première une valeur et la deuxième un poid
                 tab=[]
                 tab.append(self.listeValeur[j])

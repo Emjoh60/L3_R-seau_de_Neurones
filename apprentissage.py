@@ -6,12 +6,17 @@ import csv
 import os.path
 from os import path
 
-fileSave="Save/"+str(sys.argv[1]) # Nom du fichier de sauvegarde
-fileName=str(sys.argv[2]) # Nom du fichier contenant les données
-nbCouche=int(sys.argv[3]) # Nombre de couche
-tauxApp=float(sys.argv[4]) # Taux d'apprentissage
-paramSigmoide=float(sys.argv[5]) # Paramètre de la Sigmoide
-margeErreur=float(sys.argv[6]) # Marge d'erreur
+try:
+    fileSave="Save/"+str(sys.argv[1]) # Nom du fichier de sauvegarde
+    fileName=str(sys.argv[2]) # Nom du fichier contenant les données
+    nbCouche=int(sys.argv[3]) # Nombre de couche
+    tauxApp=float(sys.argv[4]) # Taux d'apprentissage
+    paramSigmoide=float(sys.argv[5]) # Paramètre de la Sigmoide
+    margeErreur=float(sys.argv[6]) # Marge d'erreur
+    cpt=0
+except:
+    print("ERREUR DE SAISIE !\nFormat attendu :python3 apprentissage.py FileSave DataFile NombreCouche TauxApprentissage ParamSigmoide MargeErreur")
+    exit(1)
 
 # Si le fichier existe alors on l'ouvre et on modifie ces paramètres
 if(path.exists(fileSave)):
